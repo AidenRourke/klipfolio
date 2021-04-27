@@ -1,0 +1,16 @@
+.Icon {
+    height: 50px;
+    width: 50px;
+}
+
+.Circle {
+    height: 75px;
+    width: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
