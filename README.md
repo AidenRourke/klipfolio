@@ -10,5 +10,6 @@ https://user-images.githubusercontent.com/32077724/116377783-8a9ca780-a7df-11eb-
 - Add tests for server code
 - Remove unused endpoints
 - Add Modeled Data
+- Remove foreign key from MetricValue table
 - Make search query names more user friendly
 
