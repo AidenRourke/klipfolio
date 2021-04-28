@@ -9,11 +9,8 @@ Current Screen Recording:
 https://user-images.githubusercontent.com/32077724/116415021-05c58400-a807-11eb-8187-537b7ffe8607.mov
 
 ## TODO:
-- Add tests for Entities and Relations
 - Remove unused endpoints?
 - view more downward expansion
 - responsiveness
 - Metric percentage change
-- Increase page size for filter results if filtered by that category
-
 
