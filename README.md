@@ -6,7 +6,7 @@ Goal:
 
 Current Screen Recording:
 
-https://user-images.githubusercontent.com/32077724/116414554-9059b380-a806-11eb-82b8-43ddb52bb845.mov
+https://user-images.githubusercontent.com/32077724/116415021-05c58400-a807-11eb-8187-537b7ffe8607.mov
 
 ## TODO:
 - Add tests for Entities and Relations
