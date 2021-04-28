@@ -9,7 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.util.Assert;
 
 @DataJpaTest
-public class MetricEntityRepositoryTest {
+public class MetricEntityRepositoryTests {
 
     @Autowired MetricRepository metricRepository;
 

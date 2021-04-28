@@ -9,7 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.util.Assert;
 
 @DataJpaTest
-public class ServiceEntityRepositoryTest {
+public class ServiceEntityRepositoryTests {
 
     @Autowired ServiceRepository serviceRepository;
 

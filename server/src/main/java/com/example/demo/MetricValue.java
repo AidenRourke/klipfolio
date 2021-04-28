@@ -1,7 +1,6 @@
 package com.example.demo;
 
 import javax.persistence.*;
-import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -11,7 +10,7 @@ public class MetricValue {
 
     private Long created;
     private int value;
-    private @ManyToOne(optional=false) @JoinColumn(name="metric_id", nullable=false) Metric metric;
+    private @ManyToOne(optional=false) Metric metric;
 
     public MetricValue() {
     }

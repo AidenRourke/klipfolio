@@ -3,9 +3,6 @@ package com.example.demo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.util.Assert;
 
 import java.time.Duration;
@@ -14,7 +11,7 @@ import java.util.Date;
 import java.util.List;
 
 @DataJpaTest
-public class MetricValueEntityRespository {
+public class MetricValueEntityRespositoryTests {
 
     @Autowired MetricValueRepository metricValueRepository;
 
