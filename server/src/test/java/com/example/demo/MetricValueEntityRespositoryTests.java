@@ -20,7 +20,7 @@ public class MetricValueEntityRespositoryTests {
     @Test
     public void whenFindFirstByMetricIdAndCreatedIsBeforeOrderByCreatedDesc_thenFindLastMetricValue() {
         Metric metric1 = new Metric("metric", "");
-        metricRepository.save(metric1);
+
         Instant now = Instant.now();
         Instant before = now.minus(Duration.ofDays(1));
         MetricValue metricValue1 = new MetricValue(100, metric1, Date.from(before).getTime());
@@ -30,10 +30,13 @@ public class MetricValueEntityRespositoryTests {
         MetricValue metricValue3 = new MetricValue(100, metric1, Date.from(before).getTime());
         before = now.minus(Duration.ofDays(4));
         MetricValue metricValue4 = new MetricValue(100, metric1, Date.from(before).getTime());
-        metricValueRepository.save(metricValue1);
-        metricValueRepository.save(metricValue2);
-        metricValueRepository.save(metricValue3);
-        metricValueRepository.save(metricValue4);
+
+        metric1.getMetricValues().add(metricValue1);
+        metric1.getMetricValues().add(metricValue2);
+        metric1.getMetricValues().add(metricValue3);
+        metric1.getMetricValues().add(metricValue4);
+
+        metricRepository.save(metric1);
 
         Instant timeEnd = now.minus(Duration.ofHours(25));
         MetricValue metricValue = metricValueRepository.findFirstByMetricIdAndCreatedIsBeforeOrderByCreatedDesc(metric1.getId(), Date.from(timeEnd).getTime());
@@ -44,7 +47,7 @@ public class MetricValueEntityRespositoryTests {
     @Test
     public void whenFindAllByMetricIdAndCreatedIsBetween_thenFilterMetricValues() {
         Metric metric1 = new Metric("metric", "");
-        metricRepository.save(metric1);
+
         Instant now = Instant.now();
         Instant before = now.minus(Duration.ofHours(1));
         MetricValue metricValue1 = new MetricValue(100, metric1, Date.from(before).getTime());
@@ -54,10 +57,13 @@ public class MetricValueEntityRespositoryTests {
         MetricValue metricValue3 = new MetricValue(100, metric1, Date.from(before).getTime());
         before = now.minus(Duration.ofHours(10));
         MetricValue metricValue4 = new MetricValue(100, metric1, Date.from(before).getTime());
-        metricValueRepository.save(metricValue1);
-        metricValueRepository.save(metricValue2);
-        metricValueRepository.save(metricValue3);
-        metricValueRepository.save(metricValue4);
+
+        metric1.getMetricValues().add(metricValue1);
+        metric1.getMetricValues().add(metricValue2);
+        metric1.getMetricValues().add(metricValue3);
+        metric1.getMetricValues().add(metricValue4);
+
+        metricRepository.save(metric1);
 
         Instant timeEnd = now.minus(Duration.ofHours(2));
         Instant timeStart = now.minus(Duration.ofHours(8));

@@ -45,7 +45,7 @@ public class SpringDataRelationshipsTests {
         metric1.getMetricValues().add(metricValue1);
 
         metricRepository.save(metric1);
-        
+
         Metric metric = metricRepository.findById(metric1.getId()).orElse(null);
         metric.getMetricValues().clear();
 
