@@ -18,35 +18,15 @@ public class ServiceEntityRepositoryTest {
         Service service1 = new Service("substringstart", "example.com");
         Service service2 = new Service("endsubstring", "example.com");
         Service service3 = new Service("capitalSUBSTRING", "example.com");
+        Service service4 = new Service("substrin", "");
         serviceRepository.save(service1);
         serviceRepository.save(service2);
         serviceRepository.save(service3);
-
-        Page<Service> services = serviceRepository.findByNameContainingIgnoreCase("substring", null );
-
-        Assert.isTrue(services.getTotalElements() == 3, "findByNameContainingIgnoreCase finds correct services");
-    }
-
-    @Test
-    public void whenFindbyNameContainingIgnoreCase_thenIgnoreServices() {
-        Service service1 = new Service("substrin", "");
-        serviceRepository.save(service1);
-
-        Page<Service> services = serviceRepository.findByNameContainingIgnoreCase("substring", null );
-
-        Assert.isTrue(services.getTotalElements() == 0, "findByNameContainingIgnoreCase ignores correct services");
-    }
-
-    @Test
-    public void whenFindbyNameContainingIgnoreCase_thenPaginateServices() {
-        Service service1 = new Service("substringstart", "");
-        Service service2 = new Service("endsubstring", "");
-        serviceRepository.save(service1);
-        serviceRepository.save(service2);
+        serviceRepository.save(service4);
 
         Pageable pageable = PageRequest.of(0, 1);
-        Page<Service> services = serviceRepository.findByNameContainingIgnoreCase("substring", pageable);
+        Page<Service> services = serviceRepository.findByNameContainingIgnoreCase("substring", pageable );
 
-        Assert.isTrue(services.getTotalPages() == 2, "findByNameContainingIgnoreCase paginates services");
+        Assert.isTrue(services.getTotalElements() == 3 && services.getTotalPages() == 3, "findByNameContainingIgnoreCase finds correct services");
     }
 }
