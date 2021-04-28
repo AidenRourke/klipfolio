@@ -22,7 +22,6 @@
 .Content {
   flex: 1;
   background-color: whitesmoke;
-  padding: 1rem;
 
   display: flex;
   flex-direction: column;
@@ -35,4 +34,6 @@
 
 .Load-more {
   float: right;
+  margin-right: 1rem;
+  height: 1.25rem;
 }

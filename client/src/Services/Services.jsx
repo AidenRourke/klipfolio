@@ -16,8 +16,8 @@ const Metrics = () => {
 
     const renderContent = () => {
         return services?._embedded.services.map(service => <ServiceWidget key={service._links.self.href}
-                                                                            name={service.name}
-                                                                            iconUrl={service.iconUrl}/>)
+                                                                          name={service.name}
+                                                                          iconUrl={service.iconUrl}/>)
     };
 
     const fetchMore = (url) => {
@@ -35,9 +35,7 @@ const Metrics = () => {
 
     const renderLoadMore = () => {
         if (services?._links?.next) {
-            return <div className="Load-more">
-                <Button onClick={() => fetchMore(services._links.next.href)}>More Services</Button>
-            </div>
+            return <Button onClick={() => fetchMore(services._links.next.href)}>More Services</Button>
         }
     };
 
@@ -46,7 +44,9 @@ const Metrics = () => {
         <div className="Asset-container">
             {renderContent()}
         </div>
-        {renderLoadMore()}
+        <div className="Load-more">
+            {renderLoadMore()}
+        </div>
     </div>
 };
 

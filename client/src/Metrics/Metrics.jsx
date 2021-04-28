@@ -35,9 +35,7 @@ const Metrics = () => {
 
     const renderLoadMore = () => {
         if (metrics?._links?.next) {
-            return <div className="Load-more">
-                <Button onClick={() => fetchMore(metrics._links.next.href)}>More metrics</Button>
-            </div>
+            return <Button onClick={() => fetchMore(metrics._links.next.href)}>More metrics</Button>
         }
     };
 
@@ -46,7 +44,9 @@ const Metrics = () => {
         <div className="Asset-container">
             {renderContent()}
         </div>
-        {renderLoadMore()}
+        <div className="Load-more">
+            {renderLoadMore()}
+        </div>
     </div>
 };
 

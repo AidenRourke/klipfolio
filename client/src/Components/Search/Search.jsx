@@ -86,7 +86,7 @@ const Search = () => {
     };
 
     const renderItems = () => {
-        return options.map(option => <div key={option.key} className="Dropdown-item">
+        return options.map(option => <div key={option.key} className="Dropdown-item" onClick={() => setIsOpen(false)}>
             <p className="Asset">{option.name}</p>
             <small className="Category">{option.category}</small>
         </div>)
