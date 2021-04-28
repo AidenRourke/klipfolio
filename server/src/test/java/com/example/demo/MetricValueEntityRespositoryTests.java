@@ -24,10 +24,10 @@ public class MetricValueEntityRespositoryTests {
         Instant now = Instant.now();
         Instant before = now.minus(Duration.ofDays(1));
         MetricValue metricValue1 = new MetricValue(100, metric1, Date.from(before).getTime());
-        before = now.minus(Duration.ofDays(2));
-        MetricValue metricValue2 = new MetricValue(100, metric1, Date.from(before).getTime());
         before = now.minus(Duration.ofDays(3));
         MetricValue metricValue3 = new MetricValue(100, metric1, Date.from(before).getTime());
+        before = now.minus(Duration.ofDays(2));
+        MetricValue metricValue2 = new MetricValue(100, metric1, Date.from(before).getTime());
         before = now.minus(Duration.ofDays(4));
         MetricValue metricValue4 = new MetricValue(100, metric1, Date.from(before).getTime());
 
