@@ -3,6 +3,7 @@ package com.example.demo;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.Objects;
 
 @Entity
 public class Service {
@@ -40,5 +41,29 @@ public class Service {
 
     public void setIconUrl(String iconUrl) {
         this.iconUrl = iconUrl;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Service service = (Service) o;
+        return Objects.equals(id, service.id) &&
+                Objects.equals(name, service.name) &&
+                Objects.equals(iconUrl, service.iconUrl);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, iconUrl);
+    }
+
+    @Override
+    public String toString() {
+        return "Service{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", iconUrl='" + iconUrl + '\'' +
+                '}';
     }
 }
