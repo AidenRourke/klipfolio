@@ -11,7 +11,7 @@ public class Metric {
     private @Id @GeneratedValue Long id;
     private String name;
     private String symbol;
-    private @OneToMany List<MetricValue> metricValues;
+    private @OneToMany(mappedBy="metric") List<MetricValue> metricValues;
 
     public Metric() {
         this.metricValues = new ArrayList<>();

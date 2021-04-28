@@ -11,14 +11,14 @@ public class MetricValue {
 
     private Long created;
     private int value;
-    private @ManyToOne Metric metric;
+    private @ManyToOne @JoinColumn(name="metric_id", nullable=false) Metric metric;
 
     public MetricValue() {
 
     }
 
-    public MetricValue(int value, Metric metric, Date created) {
-        this.created = created.getTime();
+    public MetricValue(int value, Metric metric, Long created) {
+        this.created = created;
         this.value = value;
         this.metric = metric;
     }

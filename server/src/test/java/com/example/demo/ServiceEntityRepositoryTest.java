@@ -28,7 +28,7 @@ public class ServiceEntityRepositoryTest {
     }
 
     @Test
-    public void whenFindbyNameContainingIgnoreCase_thenIgnoreMetrics() {
+    public void whenFindbyNameContainingIgnoreCase_thenIgnoreServices() {
         Service service1 = new Service("substrin", "");
         serviceRepository.save(service1);
 

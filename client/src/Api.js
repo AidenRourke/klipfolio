@@ -9,7 +9,7 @@ const METRIC_VALUES = "metricValues";
 const SEARCH = "search";
 
 // Metric Value Search Queries
-const ALL_BY_METRIC_ID_AND_TIMERANGE = "findAllByMetricIdAndCreatedIsBetween";
+const ALL_BY_METRIC_ID_AND_TIMERANGE = "findAllByMetricIdAndCreatedIsBetweenOrderByCreatedAsc";
 const LAST_BY_METRIC_ID_AND_TIMEEND = "findFirstByMetricIdAndCreatedIsBeforeOrderByCreatedDesc";
 
 // Find By Name Search Query

@@ -9,5 +9,5 @@ import java.util.List;
 public interface MetricValueRepository extends CrudRepository<MetricValue, Long> {
     MetricValue findFirstByMetricIdAndCreatedIsBeforeOrderByCreatedDesc(Long metricId, Long timeEnd);
 
-    List<MetricValue> findAllByMetricIdAndCreatedIsBetween(Long metricId, Long timeStart, Long timeEnd);
+    List<MetricValue> findAllByMetricIdAndCreatedIsBetweenOrderByCreatedAsc(Long metricId, Long timeStart, Long timeEnd);
 }
