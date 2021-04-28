@@ -1,11 +1,13 @@
 import React, {useState, useEffect, useRef} from "react"
 
 import "./Search.css"
-import {findMetrics, findServices} from "../../Api";
+import {findMetrics, findModeledData, findServices} from "../../Api";
+import {Button} from "../../Components";
 
 const categories = [
     {name: "Metrics", request: findMetrics, key: "metrics"},
     {name: "Services", request: findServices, key: "services"},
+    {name: "Modeled Data", request: findModeledData, key: "modeledDatas"},
 ];
 
 const Search = () => {
@@ -75,13 +77,13 @@ const Search = () => {
 
     const renderTags = () => {
         return categories.map(category => {
-            let className = "Tag";
+            let className = " Tag";
             let onClick = () => addTag(category.name);
             if (filters.includes(category.name)) {
                 className += " Tag-active";
                 onClick = () => removeTag(category.name)
             }
-            return <button key={category.name} className={className} onClick={onClick}>{category.name}</button>
+            return <Button key={category.name} className={className} onClick={onClick}>{category.name}</Button>
         })
     };
 

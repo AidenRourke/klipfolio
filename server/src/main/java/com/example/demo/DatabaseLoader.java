@@ -51,14 +51,14 @@ public class DatabaseLoader implements CommandLineRunner {
 
         Metric metric3 = new Metric("Revenue", "$");
         this.metrics.save(metric3);
-        this.metricValues.save(new MetricValue(5000, metric2, new Date().getTime()));
-        this.metricValues.save(new MetricValue(4500, metric2, new Date().getTime()));
-        this.metricValues.save(new MetricValue(5000, metric2, new Date().getTime()));
-        this.metricValues.save(new MetricValue(2000, metric2, new Date().getTime()));
-        this.metricValues.save(new MetricValue(500, metric2, new Date().getTime()));
-        this.metricValues.save(new MetricValue(50, metric2, new Date().getTime()));
-        this.metricValues.save(new MetricValue(100, metric2, new Date().getTime()));
-        this.metricValues.save(new MetricValue(500, metric2, new Date().getTime()));
+        this.metricValues.save(new MetricValue(5000, metric3, new Date().getTime()));
+        this.metricValues.save(new MetricValue(4500, metric3, new Date().getTime()));
+        this.metricValues.save(new MetricValue(5000, metric3, new Date().getTime()));
+        this.metricValues.save(new MetricValue(2000, metric3, new Date().getTime()));
+        this.metricValues.save(new MetricValue(500, metric3, new Date().getTime()));
+        this.metricValues.save(new MetricValue(50, metric3, new Date().getTime()));
+        this.metricValues.save(new MetricValue(100, metric3, new Date().getTime()));
+        this.metricValues.save(new MetricValue(500, metric3, new Date().getTime()));
 
         this.services.save(new Service("Dropbox", "https://icon-svgs.s3.amazonaws.com/Dropbox_Icon.svg"));
         this.services.save(new Service("Facebook", "https://icon-svgs.s3.amazonaws.com/Facebook_Icon.svg"));

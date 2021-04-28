@@ -1,0 +1,13 @@
+.Nav-bar {
+    height: 5rem;
+    position: relative;
+    padding: 0.5rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+.App-logo {
+    position: absolute;
+    height: 5rem;
+    left: 0;
+}

@@ -40,7 +40,7 @@ const Metrics = () => {
     };
 
     return <div>
-        <h3 className="Metrics-title">Recommended Metrics</h3>
+        <h3 className="Asset-title">Recommended Metrics</h3>
         <div className="Asset-container">
             {renderContent()}
         </div>

@@ -1,6 +1,6 @@
 import MetricWidget from "./MetricWidget";
 import ServiceWidget from "./ServiceWidget";
 import Button from "./Button";
-import Search from "./Search";
+import DataModelWidget from "./DataModelWidget";
 
-export {MetricWidget, ServiceWidget, Button, Search}
+export {MetricWidget, ServiceWidget, Button, DataModelWidget}

@@ -37,7 +37,7 @@ const MetricWidget = ({id, name, symbol}) => {
         fillBelow: 'rgba(200,67,23,0.1)',
         hover: false,
         width: "100%",
-        height: "75px"
+        height: "4rem"
     };
 
     return <div className="Metric-widget">
@@ -47,7 +47,7 @@ const MetricWidget = ({id, name, symbol}) => {
                       displayType={'text'}
                       thousandSeparator={true}
                       prefix={symbol}
-                      renderText={(value, props) => <h2 {...props}>{value}</h2>} />
+                      renderText={(value, props) => <h3 {...props}>{value}</h3>} />
         <LineGraph {...props}/>
     </div>
 };
