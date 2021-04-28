@@ -28,37 +28,43 @@ public class DatabaseLoader implements CommandLineRunner {
     @Override
     public void run(String... strings) throws Exception {
         Metric metric1 = new Metric("Profit", "$");
+
+        metric1.getMetricValues().add(new MetricValue(1000, metric1, new Date().getTime()));
+        metric1.getMetricValues().add(new MetricValue(2000, metric1, new Date().getTime()));
+        metric1.getMetricValues().add(new MetricValue(3000, metric1, new Date().getTime()));
+        metric1.getMetricValues().add(new MetricValue(4000, metric1, new Date().getTime()));
+        metric1.getMetricValues().add(new MetricValue(10000, metric1, new Date().getTime()));
+        metric1.getMetricValues().add(new MetricValue(9000, metric1, new Date().getTime()));
+        metric1.getMetricValues().add(new MetricValue(8000, metric1, new Date().getTime()));
+        metric1.getMetricValues().add(new MetricValue(10000, metric1, new Date().getTime()));
+
         this.metrics.save(metric1);
-        this.metricValues.save(new MetricValue(1000, metric1, new Date().getTime()));
-        this.metricValues.save(new MetricValue(2000, metric1, new Date().getTime()));
-        this.metricValues.save(new MetricValue(3000, metric1, new Date().getTime()));
-        this.metricValues.save(new MetricValue(4000, metric1, new Date().getTime()));
-        this.metricValues.save(new MetricValue(10000, metric1, new Date().getTime()));
-        this.metricValues.save(new MetricValue(9000, metric1, new Date().getTime()));
-        this.metricValues.save(new MetricValue(8000, metric1, new Date().getTime()));
-        this.metricValues.save(new MetricValue(10000, metric1, new Date().getTime()));
 
         Metric metric2 = new Metric("Views", "");
+
+        metric2.getMetricValues().add(new MetricValue(100, metric2, new Date().getTime()));
+        metric2.getMetricValues().add(new MetricValue(200, metric2, new Date().getTime()));
+        metric2.getMetricValues().add(new MetricValue(300, metric2, new Date().getTime()));
+        metric2.getMetricValues().add(new MetricValue(400, metric2, new Date().getTime()));
+        metric2.getMetricValues().add(new MetricValue(1000, metric2, new Date().getTime()));
+        metric2.getMetricValues().add(new MetricValue(2000, metric2, new Date().getTime()));
+        metric2.getMetricValues().add(new MetricValue(3000, metric2, new Date().getTime()));
+        metric2.getMetricValues().add(new MetricValue(5000, metric2, new Date().getTime()));
+
         this.metrics.save(metric2);
-        this.metricValues.save(new MetricValue(100, metric2, new Date().getTime()));
-        this.metricValues.save(new MetricValue(200, metric2, new Date().getTime()));
-        this.metricValues.save(new MetricValue(300, metric2, new Date().getTime()));
-        this.metricValues.save(new MetricValue(400, metric2, new Date().getTime()));
-        this.metricValues.save(new MetricValue(1000, metric2, new Date().getTime()));
-        this.metricValues.save(new MetricValue(2000, metric2, new Date().getTime()));
-        this.metricValues.save(new MetricValue(3000, metric2, new Date().getTime()));
-        this.metricValues.save(new MetricValue(5000, metric2, new Date().getTime()));
 
         Metric metric3 = new Metric("Revenue", "$");
+
+        metric3.getMetricValues().add(new MetricValue(5000, metric3, new Date().getTime()));
+        metric3.getMetricValues().add(new MetricValue(4500, metric3, new Date().getTime()));
+        metric3.getMetricValues().add(new MetricValue(5000, metric3, new Date().getTime()));
+        metric3.getMetricValues().add(new MetricValue(2000, metric3, new Date().getTime()));
+        metric3.getMetricValues().add(new MetricValue(500, metric3, new Date().getTime()));
+        metric3.getMetricValues().add(new MetricValue(50, metric3, new Date().getTime()));
+        metric3.getMetricValues().add(new MetricValue(100, metric3, new Date().getTime()));
+        metric3.getMetricValues().add(new MetricValue(500, metric3, new Date().getTime()));
+
         this.metrics.save(metric3);
-        this.metricValues.save(new MetricValue(5000, metric3, new Date().getTime()));
-        this.metricValues.save(new MetricValue(4500, metric3, new Date().getTime()));
-        this.metricValues.save(new MetricValue(5000, metric3, new Date().getTime()));
-        this.metricValues.save(new MetricValue(2000, metric3, new Date().getTime()));
-        this.metricValues.save(new MetricValue(500, metric3, new Date().getTime()));
-        this.metricValues.save(new MetricValue(50, metric3, new Date().getTime()));
-        this.metricValues.save(new MetricValue(100, metric3, new Date().getTime()));
-        this.metricValues.save(new MetricValue(500, metric3, new Date().getTime()));
 
         this.services.save(new Service("Dropbox", "https://icon-svgs.s3.amazonaws.com/Dropbox_Icon.svg"));
         this.services.save(new Service("Facebook", "https://icon-svgs.s3.amazonaws.com/Facebook_Icon.svg"));

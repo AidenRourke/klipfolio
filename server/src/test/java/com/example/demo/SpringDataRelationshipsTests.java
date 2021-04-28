@@ -6,10 +6,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.util.Assert;
 
 import java.time.Duration;
-import java.time.Instant;
 import java.util.Date;
-import java.util.List;
-import java.util.Optional;
 
 @DataJpaTest
 public class SpringDataRelationshipsTests {
