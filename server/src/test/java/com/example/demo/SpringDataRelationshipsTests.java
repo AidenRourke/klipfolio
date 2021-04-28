@@ -42,19 +42,6 @@ public class SpringDataRelationshipsTests {
     }
 
     @Test
-    public void whenSetMetricValueMetricIdToNull_thenError() {
-        Metric metric1 = new Metric("metric", "");
-        metricRepository.save(metric1);
-        MetricValue metricValue1 = new MetricValue(100, metric1, new Date().getTime());
-        metricValueRepository.save(metricValue1);
-
-        metricValue1.setMetric(null);
-        metricValueRepository.save(metricValue1);
-
-        Assert.isTrue(metricValueRepository.count() == 0, "Deletes orphans");
-    }
-
-    @Test
     public void whenDeleteMetric_thenDeleteMetricValues() {
         Metric metric1 = new Metric("metric", "");
         metricRepository.save(metric1);
