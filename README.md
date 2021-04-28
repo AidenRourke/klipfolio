@@ -1,13 +1,20 @@
 # klipfolio
 
-[Hands-on Project for Full Stack Developer (2020)-1.pdf](https://github.com/AidenRourke/klipfolio/files/6374396/Hands-on.Project.for.Full.Stack.Developer.2020.-1.pdf)
+Goal:
+
+<img width="1037" alt="Screen Shot 2021-04-28 at 8 12 53 AM" src="https://user-images.githubusercontent.com/32077724/116401723-91381880-a7f9-11eb-861e-a3602b12bd28.png">
 
 Current Screen Recording:
 
-https://user-images.githubusercontent.com/32077724/116377783-8a9ca780-a7df-11eb-9ba1-4d779f9aa48e.mov
+https://user-images.githubusercontent.com/32077724/116401625-749be080-a7f9-11eb-8b9d-323d8d0b5d41.mov
 
 ## TODO:
 - Add tests for Entities and Relations
 - Remove unused endpoints?
 - view more downward expansion
+- Metric percentage change
+- Increase page size for filter results if filtered by that category
+
+
+
 
