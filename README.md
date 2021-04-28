@@ -14,8 +14,6 @@ https://user-images.githubusercontent.com/32077724/116401625-749be080-a7f9-11eb-
 - view more downward expansion
 - Metric percentage change
 - Increase page size for filter results if filtered by that category
-- Refactor Tag Filter to remove API queries from component
-
 
 
 
