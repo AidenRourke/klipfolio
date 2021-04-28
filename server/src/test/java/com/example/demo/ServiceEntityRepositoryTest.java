@@ -27,6 +27,8 @@ public class ServiceEntityRepositoryTest {
         Pageable pageable = PageRequest.of(0, 1);
         Page<Service> services = serviceRepository.findByNameContainingIgnoreCase("substring", pageable );
 
-        Assert.isTrue(services.getTotalElements() == 3 && services.getTotalPages() == 3, "findByNameContainingIgnoreCase finds correct services");
+        Assert.isTrue(services.getTotalElements() == 3 &&
+                services.getTotalPages() == 3 &&
+                !services.getContent().contains(service4), "findByNameContainingIgnoreCase finds correct services");
     }
 }

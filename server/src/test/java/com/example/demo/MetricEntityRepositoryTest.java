@@ -27,6 +27,8 @@ public class MetricEntityRepositoryTest {
         Pageable pageable = PageRequest.of(0, 1);
         Page<Metric> metrics = metricRepository.findByNameContainingIgnoreCase("substring", pageable );
 
-        Assert.isTrue(metrics.getTotalElements() == 3 && metrics.getTotalPages() == 3, "findByNameContainingIgnoreCase finds correct metrics");
+        Assert.isTrue(metrics.getTotalElements() == 3 &&
+                metrics.getTotalPages() == 3 &&
+                !metrics.getContent().contains(metric4), "findByNameContainingIgnoreCase finds correct metrics");
     }
 }
