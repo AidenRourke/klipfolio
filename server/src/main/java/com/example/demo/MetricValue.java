@@ -10,7 +10,7 @@ public class MetricValue {
 
     private Long created;
     private int value;
-    private @ManyToOne(optional=false) Metric metric;
+    private @ManyToOne(optional=false) @JoinColumn(nullable=false) Metric metric;
 
     public MetricValue() {
     }

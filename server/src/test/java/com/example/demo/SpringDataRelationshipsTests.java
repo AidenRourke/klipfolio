@@ -43,6 +43,11 @@ public class SpringDataRelationshipsTests {
 
     @Test
     public void whenSetMetricValueMetricIdToNull_thenError() {
+        Metric metric1 = new Metric("metric", "");
+        metricRepository.save(metric1);
+        MetricValue metricValue1 = new MetricValue(100, metric1, new Date().getTime());
+        metricValueRepository.save(metricValue1);
+
         // TO DO
     }
 
@@ -60,5 +65,6 @@ public class SpringDataRelationshipsTests {
         metricValueRepository.save(metricValue4);
 
         // TO DO
+
     }
 }
