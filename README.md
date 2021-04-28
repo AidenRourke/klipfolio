@@ -7,9 +7,8 @@ Current Screen Recording:
 https://user-images.githubusercontent.com/32077724/116377783-8a9ca780-a7df-11eb-9ba1-4d779f9aa48e.mov
 
 ## TODO:
-- Add tests for server code
-- Remove unused endpoints
-- Add Modeled Data
-- Remove foreign key from MetricValue table
-- Make search query names more user friendly
+- Add tests for Entities
+- Remove unused endpoints?
+- Add Modeled Data and tests for repository
+- view more downword expansion
 
