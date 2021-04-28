@@ -11,7 +11,7 @@ public class MetricValue {
 
     private Long created;
     private int value;
-    private @ManyToOne @JoinColumn(name="metric_id", nullable=false) Metric metric;
+    private @ManyToOne(optional=false) @JoinColumn(name="metric_id", nullable=false) Metric metric;
 
     public MetricValue() {
     }
