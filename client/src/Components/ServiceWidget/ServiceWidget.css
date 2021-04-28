@@ -1,11 +1,11 @@
 .Icon {
-    height: 3rem;
-    width: 3rem;
+    height: 3.5rem;
+    width: 3.5rem;
 }
 
 .Circle {
-    height: 5rem;
-    width: 5rem;
+    height: 6rem;
+    width: 6rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -24,4 +24,8 @@
 
 .Service-name {
     margin-top: 0;
+    width: 6rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis
 }

@@ -35,9 +35,9 @@ const Search = () => {
             .then(responses => {
                 const newOptions = [];
                 responses.forEach((res, i) => {
-                    const key = categories[i].key;
+                    const {key, category} = categories[i];
                     res._embedded[key].forEach(asset => {
-                        newOptions.push({name: asset.name, key: asset._links.self.href, category: key})
+                        newOptions.push({name: asset.name, key: asset._links.self.href, category})
                     })
                 });
                 setOptions(newOptions);

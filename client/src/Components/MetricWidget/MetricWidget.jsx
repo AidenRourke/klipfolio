@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react"
 import './MetricWidget.css'
 import LineGraph from 'react-line-graph'
+import NumberFormat from 'react-number-format';
 import {getLastMetricValue, getMetricValues} from "../../Api";
 
 const MetricWidget = ({id, name, symbol}) => {
@@ -40,8 +41,13 @@ const MetricWidget = ({id, name, symbol}) => {
     };
 
     return <div className="Metric-widget">
-        <h4 className="Metric-detail">{name}</h4>
-        <h2 className="Metric-detail">{symbol}{latestMetricValue?.value}</h2>
+        <h5 className="Metric-detail">{name}</h5>
+        <NumberFormat value={latestMetricValue?.value}
+                      className="Metric-detail"
+                      displayType={'text'}
+                      thousandSeparator={true}
+                      prefix={symbol}
+                      renderText={(value, props) => <h2 {...props}>{value}</h2>} />
         <LineGraph {...props}/>
     </div>
 };

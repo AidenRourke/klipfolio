@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState} from "react"
 import logo from './logo.svg';
 import './App.css';
 
@@ -7,7 +7,6 @@ import Services from "./Services"
 import {Search} from "./Components";
 
 function App() {
-
     return (
         <div className="App">
             <div className="Nav-bar">
