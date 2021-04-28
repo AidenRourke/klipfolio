@@ -64,7 +64,7 @@ public class SpringDataRelationshipsTests {
         metricValueRepository.save(metricValue3);
         metricValueRepository.save(metricValue4);
 
-        // TO DO
-
+        metricRepository.deleteAll();
+        Assert.isTrue(metricValueRepository.count() == 0, "Deleting metric deletes values");
     }
 }

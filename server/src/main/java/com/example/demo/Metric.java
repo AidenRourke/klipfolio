@@ -1,5 +1,8 @@
 package com.example.demo;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +14,7 @@ public class Metric {
     private @Id @GeneratedValue Long id;
     private String name;
     private String symbol;
-    private @OneToMany(mappedBy = "metric") List<MetricValue> metricValues;
+    private @OneToMany(mappedBy = "metric", orphanRemoval = true) @OnDelete(action = OnDeleteAction.CASCADE) List<MetricValue> metricValues;
 
     public Metric() {
         this.metricValues = new ArrayList<>();
