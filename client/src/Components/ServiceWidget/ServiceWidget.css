@@ -1,16 +1,27 @@
 .Icon {
-    height: 50px;
-    width: 50px;
+    height: 3rem;
+    width: 3rem;
 }
 
 .Circle {
-    height: 75px;
-    width: 75px;
+    height: 5rem;
+    width: 5rem;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: white;
     border-radius: 50%;
-    padding: 10px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.Service-widget {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin: 0 1rem;
+}
+
+.Service-name {
+    margin-top: 0;
 }

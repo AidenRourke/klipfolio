@@ -3,12 +3,13 @@ import {ServiceWidget} from "../Components";
 
 import "./Services.css"
 import Button from "../Components/Button/Button";
+import {getServices} from "../Api";
 
 const Metrics = () => {
     const [services, setServices] = useState(undefined);
 
     useEffect(() => {
-        fetch("http://localhost:8080/services?size=2")
+        getServices()
             .then(res => res.json())
             .then(data => setServices(data))
     }, []);
@@ -41,7 +42,7 @@ const Metrics = () => {
     };
 
     return <div>
-        <h3>Recommended Services</h3>
+        <h3 className="Services-title">Recommended Services</h3>
         <div className="Asset-container">
             {renderContent()}
         </div>

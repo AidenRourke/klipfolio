@@ -1,16 +1,10 @@
-.Service-widget {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-}
-
 .Metric-widget {
     width: 250px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin: 0 1rem;
 }
 
 .Metric-detail {
-    margin: 10px;
+    margin: 0.5rem;
 }

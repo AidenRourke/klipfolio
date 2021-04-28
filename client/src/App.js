@@ -4,6 +4,7 @@ import './App.css';
 
 import Metrics from "./Metrics";
 import Services from "./Services"
+import {Search} from "./Components";
 
 function App() {
 
@@ -11,6 +12,7 @@ function App() {
         <div className="App">
             <div className="Nav-bar">
                 <img src={logo} alt="logo" className="App-logo"/>
+                <Search/>
             </div>
             <div className="Content">
                 <Metrics/>

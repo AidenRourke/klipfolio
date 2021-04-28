@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react"
 import './MetricWidget.css'
 import LineGraph from 'react-line-graph'
+import {getLastMetricValue, getMetricValues} from "../../Api";
 
 const MetricWidget = ({id, name, symbol}) => {
     const [latestMetricValue, setLatestMetricValue] = useState(undefined);
@@ -12,11 +13,11 @@ const MetricWidget = ({id, name, symbol}) => {
         date.setDate(date.getDate() - 7);
         const timeStart = date.getTime();
 
-        fetch(`http://localhost:8080/metricValues/search/findFirstByMetricIdAndCreatedIsBeforeOrderByCreatedDesc?metricId=${id}&timeEnd=${timeEnd}`)
+        getLastMetricValue(id, timeEnd)
             .then(res => res.json())
             .then(data => setLatestMetricValue(data));
 
-        fetch(`http://localhost:8080/metricValues/search/findAllByMetricIdAndCreatedIsBetween?metricId=${id}&timeStart=${timeStart}&timeEnd=${timeEnd}`)
+        getMetricValues(id, timeStart, timeEnd)
             .then(res => res.json())
             .then(data => setMetricValues(data))
     }, []);

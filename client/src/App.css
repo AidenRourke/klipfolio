@@ -6,18 +6,23 @@
 }
 
 .Nav-bar {
-  padding: 10px;
+  height: 5rem;
+  position: relative;
+  padding: 0.5rem;
   display: flex;
+  justify-content: center;
 }
 
 .App-logo {
-  height: 100px;
+  position: absolute;
+  height: 5rem;
+  left: 0;
 }
 
 .Content {
   flex: 1;
-  background-color: lightgray;
-  padding: 20px 20px;
+  background-color: whitesmoke;
+  padding: 1rem;
 
   display: flex;
   flex-direction: column;
@@ -25,11 +30,9 @@
 
 .Asset-container {
   display: flex;
-  align-items: start;
-  justify-content: space-around;
+  margin-bottom: 0.5rem;
 }
 
 .Load-more {
-  margin-top: 10px;
   float: right;
 }

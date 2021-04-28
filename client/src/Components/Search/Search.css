@@ -1,0 +1,93 @@
+input[type="text"] {
+    flex: 1;
+    padding: 0.5rem;
+    border-radius: 3px;
+    border: 1px solid lightgray;
+}
+
+input[type="submit"] {
+    margin-left: 0.25rem;
+    background-color: #4267B2;
+    color: white;
+    border-radius: 3px;
+    border: 1px solid #4267B2;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    opacity: 0.95;
+}
+
+input[type="submit"]:active {
+    opacity: 0.9;
+}
+
+.Dropdown {
+    position: relative;
+    width: 50%;
+    align-self: center;
+}
+
+.Form {
+    width: 100%;
+    display: flex;
+}
+
+.Dropdown-header  {
+    width: 100%;
+}
+
+.Dropdown-menu {
+    width: 100%;
+    margin-top: 0.5rem;
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 1000;
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    padding: 0 0.5rem;
+}
+
+.Dropdown-item {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    border-top: 1px solid lightgray;
+    box-sizing: border-box;
+    padding: 0.5rem;
+}
+
+.Dropdown-item:hover {
+    font-weight: bold;
+}
+
+.Tags {
+    box-sizing: border-box;
+    padding: 0.5rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.Category {
+    color: darkgray;
+}
+
+.Asset {
+    margin: 0;
+}
+
+.Tag {
+    margin-right: 0.5rem;
+}
+
+.Tag-active {
+    background-color: #4267B2;
+    color: white;
+}

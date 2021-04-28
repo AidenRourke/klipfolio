@@ -3,12 +3,13 @@ import React, {useState, useEffect} from "react"
 import './Metrics.css'
 
 import {MetricWidget, Button} from "../Components";
+import {getMetrics} from "../Api";
 
 const Metrics = () => {
     const [metrics, setMetrics] = useState(undefined);
 
     useEffect(() => {
-        fetch("http://localhost:8080/metrics?size=1")
+        getMetrics()
             .then(res => res.json())
             .then(data => setMetrics(data))
     }, []);
@@ -41,7 +42,7 @@ const Metrics = () => {
     };
 
     return <div>
-        <h3>Recommended Metrics</h3>
+        <h3 className="Metrics-title">Recommended Metrics</h3>
         <div className="Asset-container">
             {renderContent()}
         </div>

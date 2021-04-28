@@ -19,3 +19,11 @@ html, body, #root {
 svg  {
   display: block;
 }
+
+button {
+  cursor: pointer;
+  border-radius: 3px;
+  border: 1px solid #4267B2;
+  color: #4267B2;
+  background: none;
+}
