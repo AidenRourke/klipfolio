@@ -41,15 +41,14 @@ public class SpringDataRelationshipsTests {
     @Test
     public void whenDeleteMetric_thenDeleteMetricValues() {
         Metric metric1 = new Metric("metric", "");
+
+        metric1.getMetricValues().add(new MetricValue(100, metric1, new Date().getTime()));
+        metric1.getMetricValues().add(new MetricValue(100, metric1, new Date().getTime()));
+        metric1.getMetricValues().add(new MetricValue(100, metric1, new Date().getTime()));
+        metric1.getMetricValues().add(new MetricValue(100, metric1, new Date().getTime()));
+
         metricRepository.save(metric1);
-        MetricValue metricValue1 = new MetricValue(100, metric1, new Date().getTime());
-        MetricValue metricValue2 = new MetricValue(100, metric1, new Date().getTime());
-        MetricValue metricValue3 = new MetricValue(100, metric1, new Date().getTime());
-        MetricValue metricValue4 = new MetricValue(100, metric1, new Date().getTime());
-        metricValueRepository.save(metricValue1);
-        metricValueRepository.save(metricValue2);
-        metricValueRepository.save(metricValue3);
-        metricValueRepository.save(metricValue4);
+
 
         metricRepository.deleteAll();
 
