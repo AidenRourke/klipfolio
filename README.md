@@ -6,15 +6,14 @@ Goal:
 
 Current Screen Recording:
 
-https://user-images.githubusercontent.com/32077724/116401625-749be080-a7f9-11eb-8b9d-323d8d0b5d41.mov
+https://user-images.githubusercontent.com/32077724/116414554-9059b380-a806-11eb-82b8-43ddb52bb845.mov
 
 ## TODO:
 - Add tests for Entities and Relations
 - Remove unused endpoints?
 - view more downward expansion
+- responsiveness
 - Metric percentage change
 - Increase page size for filter results if filtered by that category
-- Abstract asset containers into one file
-
 
 
