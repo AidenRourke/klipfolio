@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.time.Duration;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -29,40 +31,43 @@ public class DatabaseLoader implements CommandLineRunner {
     public void run(String... strings) throws Exception {
         Metric metric1 = new Metric("Profit", "$");
 
-        metric1.getMetricValues().add(new MetricValue(1000, metric1, new Date().getTime()));
-        metric1.getMetricValues().add(new MetricValue(2000, metric1, new Date().getTime()));
-        metric1.getMetricValues().add(new MetricValue(3000, metric1, new Date().getTime()));
-        metric1.getMetricValues().add(new MetricValue(4000, metric1, new Date().getTime()));
-        metric1.getMetricValues().add(new MetricValue(10000, metric1, new Date().getTime()));
-        metric1.getMetricValues().add(new MetricValue(9000, metric1, new Date().getTime()));
-        metric1.getMetricValues().add(new MetricValue(8000, metric1, new Date().getTime()));
-        metric1.getMetricValues().add(new MetricValue(10000, metric1, new Date().getTime()));
+        Instant now = Instant.now();
+        Instant before = now.minus(Duration.ofDays(1));
+
+        metric1.getMetricValues().add(new MetricValue(1000, metric1, Date.from(before).getTime()));
+        metric1.getMetricValues().add(new MetricValue(2000, metric1, Date.from(before).getTime()));
+        metric1.getMetricValues().add(new MetricValue(3000, metric1, Date.from(before).getTime()));
+        metric1.getMetricValues().add(new MetricValue(4000, metric1, Date.from(before).getTime()));
+        metric1.getMetricValues().add(new MetricValue(10000, metric1, Date.from(before).getTime()));
+        metric1.getMetricValues().add(new MetricValue(9000, metric1, Date.from(before).getTime()));
+        metric1.getMetricValues().add(new MetricValue(8000, metric1, Date.from(before).getTime()));
+        metric1.getMetricValues().add(new MetricValue(10000, metric1, Date.from(now).getTime()));
 
         this.metrics.save(metric1);
 
         Metric metric2 = new Metric("Views", "");
 
-        metric2.getMetricValues().add(new MetricValue(100, metric2, new Date().getTime()));
-        metric2.getMetricValues().add(new MetricValue(200, metric2, new Date().getTime()));
-        metric2.getMetricValues().add(new MetricValue(300, metric2, new Date().getTime()));
-        metric2.getMetricValues().add(new MetricValue(400, metric2, new Date().getTime()));
-        metric2.getMetricValues().add(new MetricValue(1000, metric2, new Date().getTime()));
-        metric2.getMetricValues().add(new MetricValue(2000, metric2, new Date().getTime()));
-        metric2.getMetricValues().add(new MetricValue(3000, metric2, new Date().getTime()));
-        metric2.getMetricValues().add(new MetricValue(5000, metric2, new Date().getTime()));
+        metric2.getMetricValues().add(new MetricValue(100, metric2, Date.from(before).getTime()));
+        metric2.getMetricValues().add(new MetricValue(200, metric2, Date.from(before).getTime()));
+        metric2.getMetricValues().add(new MetricValue(300, metric2, Date.from(before).getTime()));
+        metric2.getMetricValues().add(new MetricValue(400, metric2, Date.from(before).getTime()));
+        metric2.getMetricValues().add(new MetricValue(1000, metric2, Date.from(before).getTime()));
+        metric2.getMetricValues().add(new MetricValue(2000, metric2, Date.from(before).getTime()));
+        metric2.getMetricValues().add(new MetricValue(3000, metric2, Date.from(before).getTime()));
+        metric2.getMetricValues().add(new MetricValue(5000, metric2, Date.from(now).getTime()));
 
         this.metrics.save(metric2);
 
         Metric metric3 = new Metric("Revenue", "$");
 
-        metric3.getMetricValues().add(new MetricValue(5000, metric3, new Date().getTime()));
-        metric3.getMetricValues().add(new MetricValue(4500, metric3, new Date().getTime()));
-        metric3.getMetricValues().add(new MetricValue(5000, metric3, new Date().getTime()));
-        metric3.getMetricValues().add(new MetricValue(2000, metric3, new Date().getTime()));
-        metric3.getMetricValues().add(new MetricValue(500, metric3, new Date().getTime()));
-        metric3.getMetricValues().add(new MetricValue(50, metric3, new Date().getTime()));
-        metric3.getMetricValues().add(new MetricValue(100, metric3, new Date().getTime()));
-        metric3.getMetricValues().add(new MetricValue(500, metric3, new Date().getTime()));
+        metric3.getMetricValues().add(new MetricValue(5000, metric3, Date.from(before).getTime()));
+        metric3.getMetricValues().add(new MetricValue(4500, metric3, Date.from(before).getTime()));
+        metric3.getMetricValues().add(new MetricValue(5000, metric3, Date.from(before).getTime()));
+        metric3.getMetricValues().add(new MetricValue(2000, metric3, Date.from(before).getTime()));
+        metric3.getMetricValues().add(new MetricValue(500, metric3, Date.from(before).getTime()));
+        metric3.getMetricValues().add(new MetricValue(50, metric3, Date.from(before).getTime()));
+        metric3.getMetricValues().add(new MetricValue(100, metric3, Date.from(before).getTime()));
+        metric3.getMetricValues().add(new MetricValue(500, metric3, Date.from(now).getTime()));
 
         this.metrics.save(metric3);
 
