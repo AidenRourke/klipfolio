@@ -14,11 +14,11 @@ public class MetricValue {
     private @ManyToOne Metric metric;
 
     public MetricValue() {
-        created = new Date().getTime();
+
     }
 
-    public MetricValue(int value, Metric metric) {
-        this();
+    public MetricValue(int value, Metric metric, Date created) {
+        this.created = created.getTime();
         this.value = value;
         this.metric = metric;
     }

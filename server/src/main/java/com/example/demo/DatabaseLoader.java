@@ -5,6 +5,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Component
@@ -27,28 +28,28 @@ public class DatabaseLoader implements CommandLineRunner {
         Metric metric1 = new Metric("Profit", "$");
         this.metrics.save(metric1);
         List<MetricValue> metricValues1 = new ArrayList<>();
-        metricValues1.add(this.metricValues.save(new MetricValue(1000, metric1)));
-        metricValues1.add(this.metricValues.save(new MetricValue(2000, metric1)));
-        metricValues1.add(this.metricValues.save(new MetricValue(3000, metric1)));
-        metricValues1.add(this.metricValues.save(new MetricValue(4000, metric1)));
-        metricValues1.add(this.metricValues.save(new MetricValue(10000, metric1)));
-        metricValues1.add(this.metricValues.save(new MetricValue(9000, metric1)));
-        metricValues1.add(this.metricValues.save(new MetricValue(8000, metric1)));
-        metricValues1.add(this.metricValues.save(new MetricValue(10000, metric1)));
+        metricValues1.add(this.metricValues.save(new MetricValue(1000, metric1, new Date())));
+        metricValues1.add(this.metricValues.save(new MetricValue(2000, metric1, new Date())));
+        metricValues1.add(this.metricValues.save(new MetricValue(3000, metric1, new Date())));
+        metricValues1.add(this.metricValues.save(new MetricValue(4000, metric1, new Date())));
+        metricValues1.add(this.metricValues.save(new MetricValue(10000, metric1, new Date())));
+        metricValues1.add(this.metricValues.save(new MetricValue(9000, metric1, new Date())));
+        metricValues1.add(this.metricValues.save(new MetricValue(8000, metric1, new Date())));
+        metricValues1.add(this.metricValues.save(new MetricValue(10000, metric1, new Date())));
         metric1.setMetricValues(metricValues1);
         this.metrics.save(metric1);
 
         Metric metric2 = new Metric("Views", "");
         this.metrics.save(metric2);
         List<MetricValue> metricValues2 = new ArrayList<>();
-        metricValues2.add(this.metricValues.save(new MetricValue(100, metric2)));
-        metricValues2.add(this.metricValues.save(new MetricValue(200, metric2)));
-        metricValues2.add(this.metricValues.save(new MetricValue(300, metric2)));
-        metricValues2.add(this.metricValues.save(new MetricValue(400, metric2)));
-        metricValues2.add(this.metricValues.save(new MetricValue(1000, metric2)));
-        metricValues2.add(this.metricValues.save(new MetricValue(2000, metric2)));
-        metricValues2.add(this.metricValues.save(new MetricValue(3000, metric2)));
-        metricValues2.add(this.metricValues.save(new MetricValue(5000, metric2)));
+        metricValues2.add(this.metricValues.save(new MetricValue(100, metric2, new Date())));
+        metricValues2.add(this.metricValues.save(new MetricValue(200, metric2, new Date())));
+        metricValues2.add(this.metricValues.save(new MetricValue(300, metric2, new Date())));
+        metricValues2.add(this.metricValues.save(new MetricValue(400, metric2, new Date())));
+        metricValues2.add(this.metricValues.save(new MetricValue(1000, metric2, new Date())));
+        metricValues2.add(this.metricValues.save(new MetricValue(2000, metric2, new Date())));
+        metricValues2.add(this.metricValues.save(new MetricValue(3000, metric2, new Date())));
+        metricValues2.add(this.metricValues.save(new MetricValue(5000, metric2, new Date())));
         metric2.setMetricValues(metricValues2);
         this.metrics.save(metric2);
 

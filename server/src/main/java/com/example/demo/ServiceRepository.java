@@ -7,5 +7,5 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 @CrossOrigin
 public interface ServiceRepository extends PagingAndSortingRepository<Service, Long> {
-    Page<Service> findByNameContainingIgnoreCase(Pageable pageable, String name);
+    Page<Service> findByNameContainingIgnoreCase(String name, Pageable pageable);
 }

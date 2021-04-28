@@ -7,5 +7,5 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 @CrossOrigin
 public interface MetricRepository extends PagingAndSortingRepository<Metric, Long> {
-    Page<Metric> findByNameContainingIgnoreCase(Pageable pageable, String name);
+    Page<Metric> findByNameContainingIgnoreCase(String name, Pageable pageable);
 }
