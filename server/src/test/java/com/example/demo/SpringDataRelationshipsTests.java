@@ -48,7 +48,10 @@ public class SpringDataRelationshipsTests {
         MetricValue metricValue1 = new MetricValue(100, metric1, new Date().getTime());
         metricValueRepository.save(metricValue1);
 
-        // TO DO
+        metricValue1.setMetric(null);
+        metricValueRepository.save(metricValue1);
+
+        Assert.isTrue(metricValueRepository.count() == 0, "Deletes orphans");
     }
 
     @Test
@@ -65,6 +68,7 @@ public class SpringDataRelationshipsTests {
         metricValueRepository.save(metricValue4);
 
         metricRepository.deleteAll();
+
         Assert.isTrue(metricValueRepository.count() == 0, "Deleting metric deletes values");
     }
 }
