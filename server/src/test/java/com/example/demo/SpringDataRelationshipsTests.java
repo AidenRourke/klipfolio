@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.util.Assert;
 
-import java.time.Duration;
 import java.util.Date;
 
 @DataJpaTest
@@ -25,7 +24,7 @@ public class SpringDataRelationshipsTests {
     }
 
     @Test()
-    public void whenCreateMetricValueWithoutMetric_thenError() {
+    public void whenMetricValueWithoutMetric_thenError() {
         MetricValue metricValue1 = new MetricValue(100, null, new Date().getTime());
 
         String error = "";
@@ -35,7 +34,22 @@ public class SpringDataRelationshipsTests {
             error = e.getMessage();
         }
 
-        Assert.isTrue(error.contains("not-null property references a null or transient value"), "Cannot create Metric Value without Metric");
+        Assert.isTrue(error.contains("not-null property references a null or transient value"), "Cannot have Metric Value without a Metric");
+    }
+
+    @Test
+    public void whenRemoveMetricValueFromMetric_thenDeleteMetricValue() {
+        Metric metric1 = new Metric("metric", "");
+
+        MetricValue metricValue1 = new MetricValue(100, metric1, new Date().getTime());
+        metric1.getMetricValues().add(metricValue1);
+
+        metricRepository.save(metric1);
+        
+        Metric metric = metricRepository.findById(metric1.getId()).orElse(null);
+        metric.getMetricValues().clear();
+
+        Assert.isTrue(metricValueRepository.count() == 0, "Deletes orphans");
     }
 
     @Test
@@ -48,7 +62,6 @@ public class SpringDataRelationshipsTests {
         metric1.getMetricValues().add(new MetricValue(100, metric1, new Date().getTime()));
 
         metricRepository.save(metric1);
-
 
         metricRepository.deleteAll();
 
