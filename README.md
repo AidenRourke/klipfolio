@@ -4,6 +4,11 @@
 
 Current Screen Recording:
 
-
 https://user-images.githubusercontent.com/32077724/116377783-8a9ca780-a7df-11eb-9ba1-4d779f9aa48e.mov
+
+## TODO:
+- Add tests for server code
+- Remove unused endpoints
+- Add Modeled Data
+- Make search query names more user friendly
 
