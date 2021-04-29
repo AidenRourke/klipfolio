@@ -1,3 +1,11 @@
 .Modeled-data-title {
     margin-left: 1rem;
 }
+
+.Modeled-data-grid {
+    display: grid; /* 1 */
+    grid-template-columns: repeat(auto-fill, 16rem); /* 2 */
+    grid-gap: 1rem; /* 3 */
+    justify-content: space-between; /* 4 */
+    margin-bottom: 1rem;
+}

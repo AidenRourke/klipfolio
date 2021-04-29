@@ -23,28 +23,41 @@ const Metrics = () => {
     const fetchMore = (url) => {
         fetch(url)
             .then(res => res.json())
-            .then(newData => {
+            .then(res => {
                 const prevMetrics = metrics._embedded.metrics;
-                const newMetrics = newData._embedded.metrics;
-                const updatedMetrics = [...prevMetrics, ...newMetrics];
-                const updatedData = newData;
-                updatedData._embedded.metrics = updatedMetrics;
-                setMetrics(updatedData)
+                const newMetrics = res._embedded.metrics;
+                res._embedded.metrics = [...prevMetrics, ...newMetrics];
+                setMetrics(res);
             })
     };
 
+    const fetchFirst = (url) => {
+        fetch(url)
+            .then(res => res.json())
+            .then(res => {
+                setMetrics(res)
+            })
+    };
+
+    const renderLoadLess = () => {
+        if (metrics?.page.number > 0) {
+            return <Button onClick={() => fetchFirst(metrics._links.first.href)}>Less metrics</Button>
+        }
+    };
+
     const renderLoadMore = () => {
-        if (metrics?._links?.next) {
+        if (metrics?.page.number !== metrics?.page.totalPages - 1) {
             return <Button onClick={() => fetchMore(metrics._links.next.href)}>More metrics</Button>
         }
     };
 
     return <div>
         <h3 className="Asset-title">Recommended Metrics</h3>
-        <div className="Asset-container">
+        <div className="Metric-grid">
             {renderContent()}
         </div>
         <div className="Load-more">
+            {renderLoadLess()}
             {renderLoadMore()}
         </div>
     </div>

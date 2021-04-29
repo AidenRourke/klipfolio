@@ -23,28 +23,41 @@ const Metrics = () => {
     const fetchMore = (url) => {
         fetch(url)
             .then(res => res.json())
-            .then(newData => {
+            .then(res => {
                 const prevServices = services._embedded.services;
-                const newServices = newData._embedded.services;
-                const updatedServices = [...prevServices, ...newServices];
-                const updatedData = newData;
-                updatedData._embedded.services = updatedServices;
-                setServices(updatedData)
+                const newServices = res._embedded.services;
+                res._embedded.services = [...prevServices, ...newServices];
+                setServices(res)
             })
     };
 
+    const fetchFirst = (url) => {
+        fetch(url)
+            .then(res => res.json())
+            .then(res => {
+                setServices(res)
+            })
+    };
+
+    const renderLoadLess = () => {
+        if (services?.page.number > 0) {
+            return <Button onClick={() => fetchFirst(services._links.first.href)}>Less Services</Button>
+        }
+    };
+
     const renderLoadMore = () => {
-        if (services?._links?.next) {
+        if (services?.page.number !== services?.page.totalPages - 1) {
             return <Button onClick={() => fetchMore(services._links.next.href)}>More Services</Button>
         }
     };
 
     return <div>
         <h3 className="Asset-title">Recommended Services</h3>
-        <div className="Asset-container">
+        <div className="Services-grid">
             {renderContent()}
         </div>
         <div className="Load-more">
+            {renderLoadLess()}
             {renderLoadMore()}
         </div>
     </div>
