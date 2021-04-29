@@ -24,7 +24,7 @@ public class SpringDataRelationshipsTests {
     }
 
     @Test()
-    public void whenMetricValueWithoutMetric_thenError() {
+    public void whenSaveMetricValueWithoutMetric_thenError() {
         MetricValue metricValue1 = new MetricValue(100, null, new Date().getTime());
 
         String error = "";
@@ -38,19 +38,6 @@ public class SpringDataRelationshipsTests {
     }
 
     @Test
-    public void whenRemoveMetricValueFromMetric_thenDeleteMetricValue() {
-        Metric metric1 = new Metric("metric", "");
-
-        metric1.getMetricValues().add((new MetricValue(100, metric1, new Date().getTime())));
-
-        metricRepository.save(metric1);
-
-        metric1.getMetricValues().clear();
-
-        Assert.isTrue(metricValueRepository.count() == 0, "Deletes orphans");
-    }
-
-    @Test
     public void whenDeleteMetric_thenDeleteMetricValues() {
         Metric metric1 = new Metric("metric", "");
 
@@ -61,7 +48,7 @@ public class SpringDataRelationshipsTests {
 
         metricRepository.save(metric1);
 
-        metricRepository.deleteById(metric1.getId());
+        metricRepository.delete(metric1);
 
         Assert.isTrue(metricValueRepository.count() == 0, "Deleting metric deletes values");
     }
