@@ -10,7 +10,9 @@ https://user-images.githubusercontent.com/32077724/116522994-c1d48c80-a8a3-11eb-
 
 ## Client TODO:
 - Metric percentage change
+- Improve spacing between assets
 
 ## Server TODO:
-- REST Endpoints tests
+- Tests for REST endpoints
+- Get `curl -i -X DELETE http://localhost:8080/metricValues/11/metric` endpoint to work 
 
