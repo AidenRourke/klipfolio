@@ -14,14 +14,12 @@ public class Metric {
     private @Id @GeneratedValue Long id;
     private String name;
     private String symbol;
-    private @OneToMany(mappedBy = "metric", orphanRemoval = true, cascade = CascadeType.PERSIST) @OnDelete(action = OnDeleteAction.CASCADE) List<MetricValue> metricValues;
+    private @OneToMany(mappedBy = "metric", orphanRemoval = true, cascade = CascadeType.PERSIST) @OnDelete(action = OnDeleteAction.CASCADE) List<MetricValue> metricValues = new ArrayList<>();
 
-    public Metric() {
-        this.metricValues = new ArrayList<>();
+    public Metric(){
     }
 
     public Metric(String name, String symbol) {
-        this();
         this.name = name;
         this.symbol = symbol;
     }

@@ -6,6 +6,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.util.Assert;
 
 import java.util.Date;
+import java.util.Optional;
 
 @DataJpaTest
 public class SpringDataRelationshipsTests {
@@ -46,8 +47,7 @@ public class SpringDataRelationshipsTests {
 
         metricRepository.save(metric1);
 
-        Metric metric = metricRepository.findById(metric1.getId()).orElse(null);
-        metric.getMetricValues().clear();
+        metric1.getMetricValues().clear();
 
         Assert.isTrue(metricValueRepository.count() == 0, "Deletes orphans");
     }
