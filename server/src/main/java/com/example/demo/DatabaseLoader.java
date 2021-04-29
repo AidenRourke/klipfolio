@@ -84,7 +84,7 @@ public class DatabaseLoader implements CommandLineRunner {
 
         this.metrics.save(metric4);
 
-        Metric metric5 = new Metric("Subscribers", "$");
+        Metric metric5 = new Metric("Subscribers", "");
 
         metric5.getMetricValues().add(new MetricValue(150, metric5, Date.from(before).getTime()));
         metric5.getMetricValues().add(new MetricValue(200, metric5, Date.from(before).getTime()));
@@ -96,6 +96,19 @@ public class DatabaseLoader implements CommandLineRunner {
         metric5.getMetricValues().add(new MetricValue(650, metric5, Date.from(now).getTime()));
 
         this.metrics.save(metric5);
+
+        Metric metric6 = new Metric("Debt Equity Ratio", "");
+
+        metric6.getMetricValues().add(new MetricValue(1.0, metric6, Date.from(before).getTime()));
+        metric6.getMetricValues().add(new MetricValue(0.5, metric6, Date.from(before).getTime()));
+        metric6.getMetricValues().add(new MetricValue(0.7, metric6, Date.from(before).getTime()));
+        metric6.getMetricValues().add(new MetricValue(1.5, metric6, Date.from(before).getTime()));
+        metric6.getMetricValues().add(new MetricValue(1.2, metric6, Date.from(before).getTime()));
+        metric6.getMetricValues().add(new MetricValue(1.0, metric6, Date.from(before).getTime()));
+        metric6.getMetricValues().add(new MetricValue(2.0, metric6, Date.from(before).getTime()));
+        metric6.getMetricValues().add(new MetricValue(0.9, metric6, Date.from(now).getTime()));
+
+        this.metrics.save(metric6);
 
 
 

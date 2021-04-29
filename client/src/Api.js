@@ -24,7 +24,7 @@ const TIME_END = "timeEnd";
 const NAME = "name";
 
 // Defaults
-const PAGE_SIZE = 3;
+const PAGE_SIZE = 5;
 
 const getMetrics = () => {
     return fetch(`${BASE_URL}/${METRICS}?${SIZE}=${PAGE_SIZE}`);

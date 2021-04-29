@@ -9,13 +9,13 @@ public class MetricValue {
     private @Id @GeneratedValue Long id;
 
     private Long created;
-    private int value;
+    private double value;
     private @ManyToOne(optional=false) @JoinColumn(nullable=false) Metric metric;
 
     public MetricValue() {
     }
 
-    public MetricValue(int value, Metric metric, Long created) {
+    public MetricValue(double value, Metric metric, Long created) {
         this.created = created;
         this.value = value;
         this.metric = metric;
@@ -37,11 +37,11 @@ public class MetricValue {
         this.created = created;
     }
 
-    public int getValue() {
+    public double getValue() {
         return value;
     }
 
-    public void setValue(int value) {
+    public void setValue(double value) {
         this.value = value;
     }
 
