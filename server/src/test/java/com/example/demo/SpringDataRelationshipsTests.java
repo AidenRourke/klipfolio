@@ -14,15 +14,6 @@ public class SpringDataRelationshipsTests {
 
     @Autowired MetricRepository metricRepository;
 
-    @Test
-    public void whenCreateMetricWithoutMetricValues_thenCreateMetric() {
-        Metric metric1 = new Metric("metric", "");
-
-        metricRepository.save(metric1);
-
-        Assert.notNull(metric1.getId(), "Can create Metric without Metric Value");
-    }
-
     @Test()
     public void whenSaveMetricValueWithoutMetric_thenError() {
         MetricValue metricValue1 = new MetricValue(100, null, new Date().getTime());
