@@ -25,7 +25,7 @@ public class SpringDataRelationshipsTests {
             error = e.getMessage();
         }
 
-        Assert.isTrue(error.contains("not-null property references a null or transient value"), "Cannot have Metric Value without a Metric");
+        Assert.isTrue(error.contains("not-null property references a null or transient value"), "Metric Value cannot have null Metric");
     }
 
     @Test
@@ -41,6 +41,6 @@ public class SpringDataRelationshipsTests {
 
         metricRepository.delete(metric1);
 
-        Assert.isTrue(metricValueRepository.count() == 0, "Deleting metric deletes values");
+        Assert.isTrue(metricValueRepository.count() == 0, "Deleting Metric cascades to Metric Values");
     }
 }
