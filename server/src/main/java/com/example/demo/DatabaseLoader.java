@@ -71,9 +71,38 @@ public class DatabaseLoader implements CommandLineRunner {
 
         this.metrics.save(metric3);
 
+        Metric metric4 = new Metric("MRR", "$");
+
+        metric4.getMetricValues().add(new MetricValue(400, metric4, Date.from(before).getTime()));
+        metric4.getMetricValues().add(new MetricValue(3000, metric4, Date.from(before).getTime()));
+        metric4.getMetricValues().add(new MetricValue(2500, metric4, Date.from(before).getTime()));
+        metric4.getMetricValues().add(new MetricValue(4000, metric4, Date.from(before).getTime()));
+        metric4.getMetricValues().add(new MetricValue(3500, metric4, Date.from(before).getTime()));
+        metric4.getMetricValues().add(new MetricValue(1000, metric4, Date.from(before).getTime()));
+        metric4.getMetricValues().add(new MetricValue(4000, metric4, Date.from(before).getTime()));
+        metric4.getMetricValues().add(new MetricValue(3000, metric4, Date.from(now).getTime()));
+
+        this.metrics.save(metric4);
+
+        Metric metric5 = new Metric("Subscribers", "$");
+
+        metric5.getMetricValues().add(new MetricValue(150, metric5, Date.from(before).getTime()));
+        metric5.getMetricValues().add(new MetricValue(200, metric5, Date.from(before).getTime()));
+        metric5.getMetricValues().add(new MetricValue(300, metric5, Date.from(before).getTime()));
+        metric5.getMetricValues().add(new MetricValue(340, metric5, Date.from(before).getTime()));
+        metric5.getMetricValues().add(new MetricValue(500, metric5, Date.from(before).getTime()));
+        metric5.getMetricValues().add(new MetricValue(300, metric5, Date.from(before).getTime()));
+        metric5.getMetricValues().add(new MetricValue(600, metric5, Date.from(before).getTime()));
+        metric5.getMetricValues().add(new MetricValue(650, metric5, Date.from(now).getTime()));
+
+        this.metrics.save(metric5);
+
+
+
         this.services.save(new Service("Dropbox", "https://icon-svgs.s3.amazonaws.com/Dropbox_Icon.svg"));
         this.services.save(new Service("Facebook", "https://icon-svgs.s3.amazonaws.com/Facebook_Icon.svg"));
         this.services.save(new Service("Google Drive", "https://icon-svgs.s3.amazonaws.com/Google_Drive_Icon.svg"));
+        this.services.save(new Service("Slack", "https://icon-svgs.s3.amazonaws.com/Slack_Icon.svg"));
 
 
         ModeledData modeledData1 = new ModeledData("Lead");

@@ -14,7 +14,7 @@ public class SpringDataRelationshipsTests {
 
     @Autowired MetricRepository metricRepository;
 
-    @Test()
+    @Test
     public void whenSaveMetricValueWithoutMetric_thenError() {
         MetricValue metricValue1 = new MetricValue(100, null, new Date().getTime());
 

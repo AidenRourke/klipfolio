@@ -1,8 +1,7 @@
 .Metric-widget {
-    width: 15rem;
+    width: 16rem;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    margin: 0 1rem;
 }
 
 .Metric-detail {

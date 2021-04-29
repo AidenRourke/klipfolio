@@ -16,6 +16,7 @@
 .Asset-container {
   display: flex;
   margin-bottom: 0.5rem;
+  justify-content: space-evenly;
 }
 
 .Load-more {
