@@ -14,6 +14,5 @@ https://user-images.githubusercontent.com/32077724/116415021-05c58400-a807-11eb-
 - Metric percentage change
 
 ## Server TODO:
-- Remove uneeded endpoints
 - Endpoint tests
 
