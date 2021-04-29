@@ -15,7 +15,7 @@ public class SpringDataRelationshipsTests {
     @Autowired MetricRepository metricRepository;
 
     @Test
-    public void whenSaveMetricValueWithoutMetric_thenError() {
+    public void testNonNullMetric() {
         MetricValue metricValue1 = new MetricValue(100, null, new Date().getTime());
 
         String error = "";
@@ -29,7 +29,7 @@ public class SpringDataRelationshipsTests {
     }
 
     @Test
-    public void whenDeleteMetric_thenDeleteMetricValues() {
+    public void testCascadeDelete() {
         Metric metric1 = new Metric("metric", "");
 
         metric1.getMetricValues().add(new MetricValue(100, metric1, new Date().getTime()));

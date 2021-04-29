@@ -18,7 +18,7 @@ public class MetricValueEntityRespositoryTests {
     @Autowired MetricRepository metricRepository;
 
     @Test
-    public void whenFindFirstByMetricIdAndCreatedIsBeforeOrderByCreatedDesc_thenFindLastMetricValue() {
+    public void testFindLastMetricValueByMetricIdAndTimeEnd() {
         Metric metric1 = new Metric("metric", "");
 
         Instant now = Instant.now();
@@ -41,19 +41,19 @@ public class MetricValueEntityRespositoryTests {
         Instant timeEnd = now.minus(Duration.ofHours(25));
         MetricValue metricValue = metricValueRepository.findFirstByMetricIdAndCreatedIsBeforeOrderByCreatedDesc(metric1.getId(), Date.from(timeEnd).getTime());
 
-        Assert.isTrue(metricValue.equals(metricValue2), "findFirstByMetricIdAndCreatedIsBeforeOrderByCreatedDesc finds last metric value");
+        Assert.isTrue(metricValue.equals(metricValue2), "findFirstByMetricIdAndCreatedIsBeforeOrderByCreatedDesc finds last Metric Value");
     }
 
     @Test
-    public void whenFindAllByMetricIdAndCreatedIsBetween_thenFilterMetricValues() {
+    public void testFindMetricValuesByMetricIdAndTimeRange() {
         Metric metric1 = new Metric("metric", "");
 
         Instant now = Instant.now();
         Instant before = now.minus(Duration.ofHours(1));
         MetricValue metricValue1 = new MetricValue(100, metric1, Date.from(before).getTime());
-        before = now.minus(Duration.ofHours(4));
-        MetricValue metricValue2 = new MetricValue(100, metric1, Date.from(before).getTime());
         before = now.minus(Duration.ofHours(7));
+        MetricValue metricValue2 = new MetricValue(100, metric1, Date.from(before).getTime());
+        before = now.minus(Duration.ofHours(4));
         MetricValue metricValue3 = new MetricValue(100, metric1, Date.from(before).getTime());
         before = now.minus(Duration.ofHours(10));
         MetricValue metricValue4 = new MetricValue(100, metric1, Date.from(before).getTime());
@@ -69,7 +69,7 @@ public class MetricValueEntityRespositoryTests {
         Instant timeStart = now.minus(Duration.ofHours(8));
         List<MetricValue> metricValues = metricValueRepository.findAllByMetricIdAndCreatedIsBetweenOrderByCreatedAsc(metric1.getId(), Date.from(timeStart).getTime(), Date.from(timeEnd).getTime());
 
-        Assert.isTrue(metricValues.size() == 2, "findAllByMetricIdAndCreatedIsBetween filters metric values");
-        Assert.isTrue(metricValues.get(0).equals(metricValue3) && metricValues.get(1).equals(metricValue2), "findAllByMetricIdAndCreatedIsBetween correctly orders metric values");
+        Assert.isTrue(metricValues.size() == 2, "findAllByMetricIdAndCreatedIsBetween finds correct Metric Values");
+        Assert.isTrue(metricValues.get(0).equals(metricValue2) && metricValues.get(1).equals(metricValue3), "findAllByMetricIdAndCreatedIsBetween correctlycorrectly orders Metric Values");
     }
 }

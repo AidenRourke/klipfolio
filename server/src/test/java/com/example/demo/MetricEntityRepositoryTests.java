@@ -14,7 +14,7 @@ public class MetricEntityRepositoryTests {
     @Autowired MetricRepository metricRepository;
 
     @Test
-    public void whenFindByNameContainingIgnoreCase_thenFindMetrics() {
+    public void testFindMetricsByName() {
         Metric metric1 = new Metric("substringstart", "");
         Metric metric2 = new Metric("endsubstring", "");
         Metric metric3 = new Metric("capitalSUBSTRING", "");
@@ -29,6 +29,6 @@ public class MetricEntityRepositoryTests {
 
         Assert.isTrue(metrics.getTotalElements() == 3 &&
                 metrics.getTotalPages() == 3 &&
-                !metrics.getContent().contains(metric4), "findByNameContainingIgnoreCase finds correct metrics");
+                !metrics.getContent().contains(metric4), "findByNameContainingIgnoreCase finds correct Metrics");
     }
 }

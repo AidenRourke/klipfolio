@@ -14,7 +14,7 @@ public class ServiceEntityRepositoryTests {
     @Autowired ServiceRepository serviceRepository;
 
     @Test
-    public void whenFindByNameContainingIgnoreCase_thenFindMetrics() {
+    public void testFindServicesByName() {
         Service service1 = new Service("substringstart", "example.com");
         Service service2 = new Service("endsubstring", "example.com");
         Service service3 = new Service("capitalSUBSTRING", "example.com");
@@ -29,6 +29,6 @@ public class ServiceEntityRepositoryTests {
 
         Assert.isTrue(services.getTotalElements() == 3 &&
                 services.getTotalPages() == 3 &&
-                !services.getContent().contains(service4), "findByNameContainingIgnoreCase finds correct services");
+                !services.getContent().contains(service4), "findByNameContainingIgnoreCase finds correct Services");
     }
 }

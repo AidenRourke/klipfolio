@@ -15,7 +15,7 @@ public class ModeledDataEntityRepositoryTests {
     ModeledDataRepository modeledDataRepository;
 
     @Test
-    public void whenFindByNameContainingIgnoreCase_thenFindMetrics() {
+    public void testFindModeledDatasByName() {
         ModeledData modeledData1 = new ModeledData("substringstart");
         ModeledData modeledData2 = new ModeledData("endsubstring");
         ModeledData modeledData3 = new ModeledData("capitalSUBSTRING");
@@ -30,6 +30,6 @@ public class ModeledDataEntityRepositoryTests {
 
         Assert.isTrue(modeledData.getTotalElements() == 3 &&
                 modeledData.getTotalPages() == 3 &&
-                !modeledData.getContent().contains(modeledData4), "findByNameContainingIgnoreCase finds correct metrics");
+                !modeledData.getContent().contains(modeledData4), "findByNameContainingIgnoreCase finds correct Modeled Datas");
     }
 }
