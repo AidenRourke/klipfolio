@@ -14,7 +14,7 @@ public class Metric {
     private @Id @GeneratedValue Long id;
     private String name;
     private String symbol;
-    private @OneToMany(mappedBy = "metric", orphanRemoval = true, cascade = CascadeType.PERSIST) @OnDelete(action = OnDeleteAction.CASCADE) List<MetricValue> metricValues = new ArrayList<>();
+    private @OneToMany(mappedBy = "metric", orphanRemoval = true, cascade = CascadeType.ALL) List<MetricValue> metricValues = new ArrayList<>();
 
     public Metric(){
     }

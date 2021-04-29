@@ -6,7 +6,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.util.Assert;
 
 import java.util.Date;
-import java.util.Optional;
 
 @DataJpaTest
 public class SpringDataRelationshipsTests {
@@ -42,8 +41,7 @@ public class SpringDataRelationshipsTests {
     public void whenRemoveMetricValueFromMetric_thenDeleteMetricValue() {
         Metric metric1 = new Metric("metric", "");
 
-        MetricValue metricValue1 = new MetricValue(100, metric1, new Date().getTime());
-        metric1.getMetricValues().add(metricValue1);
+        metric1.getMetricValues().add((new MetricValue(100, metric1, new Date().getTime())));
 
         metricRepository.save(metric1);
 
@@ -63,7 +61,7 @@ public class SpringDataRelationshipsTests {
 
         metricRepository.save(metric1);
 
-        metricRepository.deleteAll();
+        metricRepository.deleteById(metric1.getId());
 
         Assert.isTrue(metricValueRepository.count() == 0, "Deleting metric deletes values");
     }
