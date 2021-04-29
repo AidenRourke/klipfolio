@@ -8,9 +8,12 @@ Current Screen Recording:
 
 https://user-images.githubusercontent.com/32077724/116415021-05c58400-a807-11eb-8187-537b7ffe8607.mov
 
-## TODO:
-- Remove unused endpoints?
+## Client TODO:
 - view more downward expansion
 - responsiveness
 - Metric percentage change
+
+## Server TODO:
+- Remove uneeded endpoints
+- Endpoint tests
 
