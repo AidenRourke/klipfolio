@@ -113,7 +113,7 @@ const Search = () => {
                        value={search}
                        onChange={(e) => setSearch(e.target.value)}
                        onFocus={() => setIsOpen(true)}/>
-                <input type="submit" value="Search"/>
+                <input data-testid="submit" type="submit" value="Search"/>
             </form>
         </div>
         {renderMenu()}

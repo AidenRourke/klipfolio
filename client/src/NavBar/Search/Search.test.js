@@ -50,6 +50,9 @@ const server = setupServer(
         return res(ctx.json(mockMetricsResponse))
     }),
     rest.get(services_url, (req, res, ctx) => {
+        if (!!req.url.searchParams.get('name').includes("query")) {
+            mockServicesResponse._embedded.services = []
+        }
         return res(ctx.json(mockServicesResponse))
     }),
     rest.get(modeled_datas_url, (req, res, ctx) => {
@@ -73,12 +76,36 @@ test('renders options', async () => {
     expect(await findAllByText("test")).toHaveLength(3);
 });
 
-test('filters options', async () => {
+test('clicking tag changes classname', () => {
+    const {getByTestId, getByText} = render(<Search/>);
+
+    fireEvent.focus(getByTestId("input"));
+
+    expect(getByText("Metrics")).not.toHaveClass("Tag-active")
+
+    fireEvent.click(getByText("Metrics"));
+
+    expect(getByText("Metrics")).toHaveClass("Tag-active")
+});
+
+test('clicking tag filters options', async () => {
     const {getByTestId, getByText, getAllByText} = render(<Search/>);
 
     fireEvent.focus(getByTestId("input"));
 
     fireEvent.click(getByText("Metrics"));
 
-    await waitFor(() =>  expect(getAllByText("test")).toHaveLength(1))
+    await waitFor(() => expect(getAllByText("test")).toHaveLength(1))
+});
+
+test('submitting form changes the query', async () => {
+    const {getByTestId, getAllByText} = render(<Search/>);
+
+    fireEvent.focus(getByTestId("input"));
+
+    fireEvent.change(getByTestId("input"), {target: {value: 'query'}});
+
+    fireEvent.click(getByTestId("submit"));
+
+    await waitFor(() => expect(getAllByText("test")).toHaveLength(2))
 });
