@@ -108,7 +108,10 @@ const Search = () => {
     return <div className="Dropdown" ref={menu}>
         <div className="Dropdown-header">
             <form className="Form" onSubmit={onSubmit}>
-                <input type="text" value={search} onChange={(e) => setSearch(e.target.value)}
+                <input data-testid="input"
+                       type="text"
+                       value={search}
+                       onChange={(e) => setSearch(e.target.value)}
                        onFocus={() => setIsOpen(true)}/>
                 <input type="submit" value="Search"/>
             </form>
