@@ -91,23 +91,25 @@ test('clicking tag changes classname', () => {
 });
 
 test('clicking tag filters options', async () => {
-    const {getByTestId, getByText, getAllByText} = render(<Search/>);
+    const {getByTestId, getByText, queryAllByText} = render(<Search/>);
 
     fireEvent.focus(getByTestId("input"));
 
     fireEvent.click(getByText("Metrics"));
 
-    await waitFor(() => expect(getAllByText("test")).toHaveLength(1))
+    await waitFor(() => expect(queryAllByText("test")).toHaveLength(1))
 });
 
 test('submitting form changes the query', async () => {
-    const {getByTestId, getAllByText} = render(<Search/>);
+    const {getByTestId, queryAllByText} = render(<Search/>);
 
     fireEvent.focus(getByTestId("input"));
+
+    await waitFor(() => expect(queryAllByText("test")).toHaveLength(3));
 
     fireEvent.change(getByTestId("input"), {target: {value: 'query'}});
 
     fireEvent.click(getByTestId("submit"));
 
-    await waitFor(() => expect(getAllByText("test")).toHaveLength(2))
+    await waitFor(() => expect(queryAllByText("test")).toHaveLength(2))
 });
