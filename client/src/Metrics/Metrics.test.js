@@ -49,9 +49,9 @@ test('renders Metrics component', () => {
 });
 
 test('renders Metric Widgets', async () => {
-    const {findByText} = render(<Metrics/>);
+    const {findAllByText} = render(<Metrics/>);
 
-    expect(await findByText("test")).toBeInTheDocument();
+    expect(await findAllByText("test")).toHaveLength(1);
 });
 
 test("displays show more", async () => {
