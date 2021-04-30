@@ -68,12 +68,14 @@ test('renders Search component', () => {
     render(<Search/>);
 });
 
-test('renders options', async () => {
-    const {getByTestId, findAllByText} = render(<Search/>);
+test('renders options after focus', async () => {
+    const {getByTestId, queryAllByText} = render(<Search/>);
+
+    expect(queryAllByText("test")).toHaveLength(0);
 
     fireEvent.focus(getByTestId("input"));
 
-    expect(await findAllByText("test")).toHaveLength(3);
+    await waitFor(() => expect(queryAllByText("test")).toHaveLength(3));
 });
 
 test('clicking tag changes classname', () => {
