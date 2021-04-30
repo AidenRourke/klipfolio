@@ -1,28 +1,30 @@
 package com.example.demo;
 
+import com.example.demo.metric.Metric;
+import com.example.demo.metric.MetricRepository;
+import com.example.demo.metricvalue.MetricValue;
+import com.example.demo.modelleddata.ModeledData;
+import com.example.demo.modelleddata.ModeledDataRepository;
+import com.example.demo.service.Service;
+import com.example.demo.service.ServiceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.Duration;
 import java.time.Instant;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 @Component
 public class DatabaseLoader implements CommandLineRunner {
 
     private final MetricRepository metrics;
-    private final MetricValueRepository metricValues;
     private final ServiceRepository services;
     private final ModeledDataRepository modeledDataRepository;
 
-
     @Autowired
-    public DatabaseLoader(MetricRepository metrics, MetricValueRepository metricValues, ServiceRepository services, ModeledDataRepository modeledDataRepository) {
+    public DatabaseLoader(MetricRepository metrics, ServiceRepository services, ModeledDataRepository modeledDataRepository) {
         this.metrics = metrics;
-        this.metricValues = metricValues;
         this.services = services;
         this.modeledDataRepository = modeledDataRepository;
     }

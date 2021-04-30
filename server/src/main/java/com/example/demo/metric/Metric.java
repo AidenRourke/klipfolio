@@ -1,4 +1,6 @@
-package com.example.demo;
+package com.example.demo.metric;
+
+import com.example.demo.metricvalue.MetricValue;
 
 import javax.persistence.*;
 import java.util.ArrayList;

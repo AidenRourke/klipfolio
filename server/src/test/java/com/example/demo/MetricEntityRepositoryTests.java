@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import com.example.demo.metric.Metric;
+import com.example.demo.metric.MetricRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -11,7 +13,8 @@ import org.springframework.util.Assert;
 @DataJpaTest
 public class MetricEntityRepositoryTests {
 
-    @Autowired MetricRepository metricRepository;
+    @Autowired
+    MetricRepository metricRepository;
 
     @Test
     public void testFindMetricsByName() {

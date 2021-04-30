@@ -1,4 +1,6 @@
-package com.example.demo;
+package com.example.demo.metricvalue;
+
+import com.example.demo.metric.Metric;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -10,7 +12,8 @@ public class MetricValue {
 
     private Long created;
     private double value;
-    private @ManyToOne(optional=false) @JoinColumn(nullable=false) Metric metric;
+    private @ManyToOne(optional=false) @JoinColumn(nullable=false)
+    Metric metric;
 
     public MetricValue() {
     }

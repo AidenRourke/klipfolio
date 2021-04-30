@@ -1,5 +1,9 @@
 package com.example.demo;
 
+import com.example.demo.metric.Metric;
+import com.example.demo.metric.MetricRepository;
+import com.example.demo.metricvalue.MetricValue;
+import com.example.demo.metricvalue.MetricValueRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -13,9 +17,11 @@ import java.util.List;
 @DataJpaTest
 public class MetricValueEntityRespositoryTests {
 
-    @Autowired MetricValueRepository metricValueRepository;
+    @Autowired
+    MetricValueRepository metricValueRepository;
 
-    @Autowired MetricRepository metricRepository;
+    @Autowired
+    MetricRepository metricRepository;
 
     @Test
     public void testFindLastMetricValueByMetricIdAndTimeEnd() {
