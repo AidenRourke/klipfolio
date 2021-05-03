@@ -50,7 +50,7 @@ const ModeledDatas = () => {
     };
 
     return <div>
-        <h3 className="Asset-title">Existing modelled data</h3>
+        <h3 className="Asset-title">Existing modeled data</h3>
         <div className="Modeled-data-grid">
             {renderContent()}
         </div>

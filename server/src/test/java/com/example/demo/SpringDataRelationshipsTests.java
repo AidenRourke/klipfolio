@@ -20,8 +20,18 @@ public class SpringDataRelationshipsTests {
     @Autowired
     MetricRepository metricRepository;
 
+    @Test  void testPersistChildren() {
+        Metric metric1 = new Metric("metric", "");
+
+        metric1.getMetricValues().add(new MetricValue(100, metric1, new Date().getTime()));
+
+        metricRepository.save(metric1);
+
+        Assert.isTrue(metricValueRepository.count() == 1, "Saving Metric cascades to Metric Values");
+    }
+
     @Test
-    public void testNonNullMetric() {
+    public void testNullMetric() {
         MetricValue metricValue1 = new MetricValue(100, null, new Date().getTime());
 
         String error = "";

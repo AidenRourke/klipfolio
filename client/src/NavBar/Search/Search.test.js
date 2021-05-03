@@ -113,3 +113,7 @@ test('submitting form changes the query', async () => {
 
     await waitFor(() => expect(queryAllByText("test")).toHaveLength(2))
 });
+
+//test click outside
+
+//test tag style change
