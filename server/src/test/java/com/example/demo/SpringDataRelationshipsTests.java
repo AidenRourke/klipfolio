@@ -20,7 +20,8 @@ public class SpringDataRelationshipsTests {
     @Autowired
     MetricRepository metricRepository;
 
-    @Test  void testPersistChildren() {
+    @Test
+    void testPersistChildren() {
         Metric metric1 = new Metric("metric", "");
 
         metric1.getMetricValues().add(new MetricValue(100, metric1, new Date().getTime()));
