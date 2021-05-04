@@ -21,17 +21,6 @@ public class SpringDataRelationshipsTests {
     MetricRepository metricRepository;
 
     @Test
-    void testPersistChildren() {
-        Metric metric1 = new Metric("metric", "");
-
-        metric1.getMetricValues().add(new MetricValue(100, metric1, new Date().getTime()));
-
-        metricRepository.save(metric1);
-
-        Assert.isTrue(metricValueRepository.count() == 1, "Saving Metric cascades to Metric Values");
-    }
-
-    @Test
     public void testNullMetric() {
         MetricValue metricValue1 = new MetricValue(100, null, new Date().getTime());
 
@@ -46,28 +35,14 @@ public class SpringDataRelationshipsTests {
     }
 
     @Test
-    public void testOrphanRemoval() {
-        Metric metric1 = new Metric("metric", "");
-
-        metric1.getMetricValues().add((new MetricValue(100, metric1, new Date().getTime())));
-
-        metricRepository.save(metric1);
-
-        metric1.getMetricValues().clear();
-
-        Assert.isTrue(metricValueRepository.count() == 0, "Deletes orphans");
-    }
-
-    @Test
     public void testCascadeDelete() {
         Metric metric1 = new Metric("metric", "");
-
-        metric1.getMetricValues().add(new MetricValue(100, metric1, new Date().getTime()));
-        metric1.getMetricValues().add(new MetricValue(100, metric1, new Date().getTime()));
-        metric1.getMetricValues().add(new MetricValue(100, metric1, new Date().getTime()));
-        metric1.getMetricValues().add(new MetricValue(100, metric1, new Date().getTime()));
-
         metricRepository.save(metric1);
+
+        metricValueRepository.save(new MetricValue(100, metric1, new Date().getTime()));
+        metricValueRepository.save(new MetricValue(100, metric1, new Date().getTime()));
+        metricValueRepository.save(new MetricValue(100, metric1, new Date().getTime()));
+        metricValueRepository.save(new MetricValue(100, metric1, new Date().getTime()));
 
         metricRepository.delete(metric1);
 

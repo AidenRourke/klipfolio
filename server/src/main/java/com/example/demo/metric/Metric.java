@@ -3,7 +3,6 @@ package com.example.demo.metric;
 import com.example.demo.metricvalue.MetricValue;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -13,7 +12,6 @@ public class Metric {
     private @Id @GeneratedValue Long id;
     private String name;
     private String symbol;
-    private @OneToMany(mappedBy = "metric", cascade = CascadeType.ALL, orphanRemoval = true) List<MetricValue> metricValues = new ArrayList<>();
 
     public Metric(){
     }
@@ -47,14 +45,6 @@ public class Metric {
         this.symbol = symbol;
     }
 
-    public List<MetricValue> getMetricValues() {
-        return metricValues;
-    }
-
-    public void setMetricValues(List<MetricValue> metricValues) {
-        this.metricValues = metricValues;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -62,13 +52,12 @@ public class Metric {
         Metric metric = (Metric) o;
         return Objects.equals(id, metric.id) &&
                 Objects.equals(name, metric.name) &&
-                Objects.equals(symbol, metric.symbol) &&
-                Objects.equals(metricValues, metric.metricValues);
+                Objects.equals(symbol, metric.symbol);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, symbol, metricValues);
+        return Objects.hash(id, name, symbol);
     }
 
     @Override
@@ -77,7 +66,6 @@ public class Metric {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", symbol='" + symbol + '\'' +
-                ", metricValues=" + metricValues +
                 '}';
     }
 }

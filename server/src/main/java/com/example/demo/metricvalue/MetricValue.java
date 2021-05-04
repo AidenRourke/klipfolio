@@ -1,6 +1,8 @@
 package com.example.demo.metricvalue;
 
 import com.example.demo.metric.Metric;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -12,8 +14,7 @@ public class MetricValue {
 
     private Long created;
     private double value;
-    private @ManyToOne(optional=false) @JoinColumn(nullable=false)
-    Metric metric;
+    private @ManyToOne(optional=false) @JoinColumn(nullable=false) @OnDelete(action = OnDeleteAction.CASCADE) Metric metric;
 
     public MetricValue() {
     }
