@@ -50,9 +50,6 @@ const server = setupServer(
         return res(ctx.json(mockMetricsResponse))
     }),
     rest.get(services_url, (req, res, ctx) => {
-        if (!!req.url.searchParams.get('name').includes("query")) {
-            mockServicesResponse._embedded.services = []
-        }
         return res(ctx.json(mockServicesResponse))
     }),
     rest.get(modeled_datas_url, (req, res, ctx) => {
@@ -100,7 +97,28 @@ test('clicking tag filters options', async () => {
     await waitFor(() => expect(queryAllByText("test")).toHaveLength(1))
 });
 
+test('click on document closes dropdown', async () => {
+    const {getByTestId, queryAllByText} = render(<Search/>);
+
+    fireEvent.focus(getByTestId("input"));
+
+    await waitFor(() => expect(queryAllByText("test")).toHaveLength(3));
+
+    fireEvent.click(document);
+
+    expect(queryAllByText("test")).toHaveLength(0)
+});
+
 test('submitting form changes the query', async () => {
+    server.use(
+        rest.get(services_url, (req, res, ctx) => {
+            if (!!req.url.searchParams.get('name').includes("query")) {
+                mockServicesResponse._embedded.services = []
+            }
+            return res(ctx.json(mockServicesResponse))
+        })
+    );
+
     const {getByTestId, queryAllByText} = render(<Search/>);
 
     fireEvent.focus(getByTestId("input"));
@@ -112,16 +130,4 @@ test('submitting form changes the query', async () => {
     fireEvent.click(getByTestId("submit"));
 
     await waitFor(() => expect(queryAllByText("test")).toHaveLength(2))
-});
-
-test('mouseDown on document closes dropdown', async () => {
-    const {getByTestId, queryAllByText} = render(<Search/>);
-
-    fireEvent.focus(getByTestId("input"));
-
-    await waitFor(() => expect(queryAllByText("test")).toHaveLength(3));
-
-    fireEvent.mouseDown(document);
-
-    await waitFor(() => expect(queryAllByText("test")).toHaveLength(0))
 });

@@ -53,17 +53,16 @@ const Search = () => {
         handleSearch()
     };
 
-
-    const handleClickOutside = (e) => {
-        if (menu.current && !menu.current.contains(e.target)) {
-            setIsOpen(false);
-        }
-    };
-
     useEffect(() => {
-        document.addEventListener('mousedown', handleClickOutside);
+        const handleClickOutside = (e) => {
+            if (menu.current && !menu.current.contains(e.target)) {
+                setIsOpen(false);
+            }
+        };
+
+        document.addEventListener('click', handleClickOutside);
         return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
+            document.removeEventListener('click', handleClickOutside);
         };
     });
 
