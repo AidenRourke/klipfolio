@@ -83,7 +83,7 @@ test('clicking tag changes classname', () => {
 
     fireEvent.focus(getByTestId("input"));
 
-    expect(getByText("Metrics")).not.toHaveClass("Tag-active")
+    expect(getByText("Metrics")).not.toHaveClass("Tag-active");
 
     fireEvent.click(getByText("Metrics"));
 
@@ -114,6 +114,14 @@ test('submitting form changes the query', async () => {
     await waitFor(() => expect(queryAllByText("test")).toHaveLength(2))
 });
 
-//test click outside
+test('mouseDown on document closes dropdown', async () => {
+    const {getByTestId, queryAllByText} = render(<Search/>);
 
-//test tag style change
+    fireEvent.focus(getByTestId("input"));
+
+    await waitFor(() => expect(queryAllByText("test")).toHaveLength(3));
+
+    fireEvent.mouseDown(document);
+
+    await waitFor(() => expect(queryAllByText("test")).toHaveLength(0))
+});
